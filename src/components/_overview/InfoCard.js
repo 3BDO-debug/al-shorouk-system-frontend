@@ -29,10 +29,12 @@ const TOTAL_USER = 18765;
 const CHART_DATA = [{ data: [20, 41, 63, 33, 28, 35, 50, 46, 11, 26] }];
 
 InfoCard.propTypes = {
-  type: PropTypes.string
+  type: PropTypes.string,
+  title: PropTypes.string,
+  total: PropTypes.number
 };
 
-export default function InfoCard({ type }) {
+export default function InfoCard({ type, title, total }) {
   const theme = useTheme();
   const color = () => {
     let value;
@@ -65,7 +67,7 @@ export default function InfoCard({ type }) {
   return (
     <Card sx={{ display: 'flex', alignItems: 'center', p: 3 }}>
       <Box sx={{ flexGrow: 1 }}>
-        <Typography variant="subtitle2">Total Active Users</Typography>
+        <Typography variant="subtitle2">{title}</Typography>
         <Stack direction="row" alignItems="center" spacing={1} sx={{ mt: 2, mb: 1 }}>
           <IconWrapperStyle
             sx={{
@@ -83,7 +85,7 @@ export default function InfoCard({ type }) {
           </Typography>
         </Stack>
 
-        <Typography variant="h3">{fNumber(TOTAL_USER)}</Typography>
+        <Typography variant="h3">{fNumber(total)}</Typography>
       </Box>
 
       <ReactApexChart type="bar" series={CHART_DATA} options={chartOptions} width={60} height={36} />
