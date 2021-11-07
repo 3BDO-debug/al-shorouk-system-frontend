@@ -1,7 +1,7 @@
 import axios from 'axios';
 // https://alshorouk.pythonanywhere.com http://127.0.0.1:8000
 
-export const mainUrl = 'http://127.0.0.1:8000';
+export const mainUrl = 'https://alshorouk.pythonanywhere.com';
 
 const axiosInstance = axios.create({
   baseURL: mainUrl,
